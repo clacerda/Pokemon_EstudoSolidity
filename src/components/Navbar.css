@@ -1,0 +1,58 @@
+ 
+nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: #bddbc5;
+  }
+  
+  .logo {
+    order: 1; /* This will ensure that the logo always appears first on the left */
+  }
+  
+  .nav-links {
+    order: 2; /* This will ensure that the buttons always appear last on the right */
+    display: flex;
+  }
+
+  input {
+    margin: 10px;
+  }
+  
+  h1, h2, h3 {
+    margin: 15px;
+    color: #15471d;
+  }
+
+  a {
+    margin: 15px;
+    color: #15471d;
+    text-decoration: none; 
+    font-weight: bold;
+    transition: all 0.2s ease-in-out; 
+}
+
+a:hover {
+    color: #15723c; 
+    cursor: pointer; 
+}
+
+  input[type=button]{
+    border-radius: 5%;
+    background-color: #3C9E3C; 
+    color: antiquewhite;
+    border: #3DCF3D;
+    height: 30px;
+    width: 200px; 
+    cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+    .nav-links {
+      display: block; 
+    }
+    .logo{
+      text-align: center; 
+    }
+  }
+ 
+ 

@@ -1,10 +1,13 @@
  import './App.css'; 
- import { useState, useEffect } from "react";
+ import { useState, Fragment } from "react";
+ import { BrowserRouter  as Router, Routes, Route, Navigate } from "react-router-dom";
+ import Navbar from './components/Navbar';
+ import SelectedBeast from './components/Selectedbeast'
 
- //Components
- import BeastsGame from './components/beastsgame';
- import SelectedBeast from './components/selectedbeast';
- import Header from './components/header';
+ //Pages
+ import About from './pages/About'
+ import Results from './pages/Results'
+ import Home from './pages/Home' 
 
 function App() {
 
@@ -22,20 +25,28 @@ const returnId = () => {
 }
 
 const changeMostrarDiv = (e) => {
-   
+   console.log(e);
   setMostrarDiv(e);
-  
+
 }
 
 
   return (
     <div className="App">
-      <div>
-        <Header />
-        <div className='container'> 
-         {mostrarDiv && <BeastsGame handleGetId={updateId} /> }
-         {!mostrarDiv && <SelectedBeast mostarDiv = {changeMostrarDiv}  retornId={returnId}/>}
-        </div>
+      <div className='container'>
+  
+            <Router>
+              <Fragment>
+                  <Navbar/> 
+              </Fragment>
+              <Routes> 
+                {mostrarDiv && <Route path="/" element={ <Home handleGetId={updateId} /> } /> }
+                {!mostrarDiv &&  <Route path="/" element={ <SelectedBeast mostarDiv = {changeMostrarDiv}  retornId={returnId}/>} /> }
+                <Route path="/About" element={<About />} />
+                <Route path="/Results" element={<Results />} /> 
+              </Routes>
+            </Router>
+
       </div>
     </div>
   );
